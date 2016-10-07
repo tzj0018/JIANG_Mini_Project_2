@@ -1,6 +1,7 @@
-#### # JIANG_Mini_Project_2
+## # JIANG_Mini_Project_2
 
 ### Step1
+#####
 #! /bin/bash                                                                   
 
 #exit program with error if user does not specify input on command line
