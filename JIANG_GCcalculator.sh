@@ -36,7 +36,7 @@ total=`echo "$array1" | wc -m`
 #calculate the percentage of sites containing G or C
 GCPercentage=`expr 100 \* $count / $total`
 
-#print the sequence name to the output
+#print the sequence name and GCPercentage to the output
 array2=${name[$i]}
 echo "$array2  $GCPercentage" >> GCcount.txt
 
