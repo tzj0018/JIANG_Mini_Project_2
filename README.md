@@ -7,13 +7,11 @@ First I used a _if_ statement to do a sanity check to see whether the user speci
 
 ```bash
 #! /bin/bash                                                                   
-
 #exit program with error if user does not specify input on command line
 if [ $# != 1 ]; then
         echo "Usage: Please specify fasta input on command line"
         exit
 fi
-
 #exit program with error if file does not exist
 if [ $# != 1 ]; then
         echo "File Not Found"
@@ -28,7 +26,6 @@ After that, the program will separate the sequence name from sequence. Also, the
 #seperate the sequence from the seqname and give number of sequence
 seqname=($(grep -v '>' $1))
 seqnum=${#seqname[@]}
-
 #create output file GCcount
 echo "SequenceName" "GCPercentage" >GCcount.txt
 ```
@@ -38,7 +35,6 @@ Then I construced a _for loop_ to determined the **GC content** in those sequenc
 ```bash
 #print the sequence name
 name=($(grep '>' $1 | sed 's/>//g'))
-
 #setup a for loop to interate as many times as sequence number
 for ((i=0; i<$seqnum; i++))
 do
@@ -55,11 +51,9 @@ After getting the amount of each base in the sequence. The amount of sites conta
 ```bash
 #calculate the percentage of sites containing G or C
 GCPercentage=`expr 100 \* $count / $total`
-
 #print the sequence name to the output
 array2=${name[$i]}
 echo "$array2  $GCPercentage" >> GCcount.txt
-
 done
 ```
 The results are showed ias following:
