@@ -23,7 +23,8 @@ fi
 
 ### Step 2
 After that, the program will separate the sequence name from sequence. Also, the variable name and the number of sequence were assigned to seqname and seqnum respectively. After assigning those variables, I redirected a header to a new output file **GCcount.txt**.
-```
+
+```bash
 #seperate the sequence from the seqname and give number of sequence
 seqname=($(grep -v '>' $1))
 seqnum=${#seqname[@]}
@@ -34,7 +35,7 @@ echo "SequenceName" "GCPercentage" >GCcount.txt
 ### Step 3
 Then I construced a _for loop_ to determined the **GC content** in those sequences. The loop was designed to iterate as manytimes as the amount of sequences. In the loop, I used _grep_ function as well as _array_ to make it more organized.
 
-```
+```bash
 #print the sequence name
 name=($(grep '>' $1 | sed 's/>//g'))
 
@@ -50,7 +51,8 @@ total=`echo "$array1" | wc -m`
 ```
 ### Step4
 After getting the amount of each base in the sequence. The amount of sites containg **G** and **C** and the total amount of sites in the sequence was determined, while the percentage of the **GC** in the sequence was caculated. Then, I got the percentage of **GC** in the sequence and redirected the output of the loop to add the output to file _GCcount.txt_. 
-```
+
+```bash
 #calculate the percentage of sites containing G or C
 GCPercentage=`expr 100 \* $count / $total`
 
